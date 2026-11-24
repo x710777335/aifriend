@@ -1,0 +1,41 @@
+# Values here are defaults; environment variables take precedence.
+use_mock_llm = false
+base_url = "https://api.openai.com/v1"
+model = "gpt-4o-mini"
+context_turns = 8
+
+[audio]
+sample_rate = 16000
+channels = 1
+vad_silence_ms = 3000
+vad_prebuffer_ms = 300
+vad_min_speech_ms = 400
+vad_max_speech_s = 30
+input_device = "default"
+vad_start_ms = 96
+
+[asr]
+provider = "funasr"
+model = "iic/SenseVoiceSmall"
+device = "cpu"
+language = "zh"
+timeout_s = 45
+
+[tts]
+provider = "edge_tts"
+voice = "zh-CN-XiaoxiaoNeural"
+rate = "+0%"
+volume = "+0%"
+enabled = true
+
+[interaction]
+mode = "half_duplex"
+auto_listen_after_reply = true
+ignore_microphone_during_tts = true
+
+[server]
+# Bind to a LAN address only after setting FRIEND_DEVICE_TOKEN in .env.
+host = "0.0.0.0"
+port = 8765
+# Test-only JSON {"type":"stt","text":"..."} injection. Disable in production.
+allow_test_stt = false
