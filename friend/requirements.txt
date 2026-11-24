@@ -1,0 +1,17 @@
+PySide6>=6.6,<7
+openai>=1.30,<2
+python-dotenv>=1.0,<2
+numpy>=1.26,<3
+sounddevice>=0.4.6,<1
+soundfile>=0.12,<1
+edge-tts>=6.1,<8
+# Optional but required for local SenseVoice ASR / Silero VAD in voice mode.
+torch>=2.2,<3
+funasr>=1.1,<2
+modelscope>=1.15,<2
+# FunASR/SenseVoice feature extraction backend; avoids a torch-version-specific torchaudio install.
+kaldi-native-fbank>=1.20,<2
+# ESP32 WebSocket protocol server (the API key remains on this host only).
+websockets>=13,<18
+# Bundled FFmpeg/Opus codec bindings for ESP32 WebSocket audio streams.
+av>=14,<19

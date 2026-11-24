@@ -1,0 +1,8 @@
+idf.py menuconfig
+idf.py build
+idf.py -p COM4 flash
+idf.py -p COM4 monitor
+
+cd E:\code\friend_esp\friend
+conda activate friend
+python -c "import sqlite3; c=sqlite3.connect('data/chat_history.sqlite3'); rows=c.execute(\"SELECT created_at, role, content FROM messages WHERE conversation_id LIKE 'esp32:%' ORDER BY id DESC LIMIT 20\").fetchall(); [print(f'{t} [{r}] {s}') for t,r,s in reversed(rows)]; c.close()"

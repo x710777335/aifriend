@@ -1,0 +1,19 @@
+"""Extension contracts; concrete implementations belong to later phases."""
+from __future__ import annotations
+
+from typing import Protocol
+
+
+class VisionModule(Protocol):
+    def start(self) -> None: ...
+    def stop(self) -> None: ...
+
+
+class AudioModule(Protocol):
+    def start_listening(self) -> None: ...
+    def speak(self, text: str) -> None: ...
+
+
+class MemoryModule(Protocol):
+    def recall(self, query: str) -> list[str]: ...
+    def remember(self, text: str) -> None: ...
